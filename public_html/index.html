@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphic Card</title>
+    <meta charset="utf-8" />
+</head>
+  <style type="text/css">
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+}  </style>
+<body>
+<div class="content">
+ 	     
+    <h1>Graphic Card</h1>
+<div>
+  <input type="checkbox" id="transit" name="transit" onclick="svg.typeHoroscop()">
+  <label for="transit">Transit</label>
+  <input type="checkbox" id="reverse" name="reverse" onclick="svg.reverseHoroscop()">
+  <label for="reverse">Reverse</label>
+</div>
+<div id='begin'></div>
+<script>
+function loadScript(src) {
+  return new Promise(function(resolve, reject) {
+    let script = document.createElement('script');
+    script.src = src;
+    script.onload = () => resolve(script);
+    script.onerror = () => reject(new Error(`Ошибка загрузки скрипта ${src}`));
+    document.head.append(script);
+  });
+}
+loadScript("js/fastJS.js")
+  .then(script => loadScript("js/astrology2D.js"))
+  .then(script => loadScript("js/graphiccard.js"))
+
+</script>
+</div>      
+    <footer class="footer">
+    <p>DamirSoft - Copyright © 2020</p>
+    </footer></body>
+<html>
